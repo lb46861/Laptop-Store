@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1000/xhtml">
+
+
+
+<head th:replace="common/header :: common-header" />
+<body>
+	<div th:replace="common/header :: navbar" />
+
+	<div class="container">
+		<div class="row myAccountHeader">
+			<div class="col-xs-8 laptopviewHeader">
+				<h2 class="section-headline">
+					 <span th:text="${user}? ${#strings.toUpperCase(user.username)} : 'List of our laptops'"></span>
+					
+				</h2>
+				<h4 style="text-align:center; color:#fff;">
+					Enjoy our products !
+				</h4>
+				
+			</div>
+
+			<div class="col-xs-4">
+				<img src="/images/logo.jpg" class="img-responsive"
+					style="height: 300px;" />
+			</div>
+		</div>
+
+
+
+		<div class="row" style="margin-top:100px;">
+		
+			<div class="col-xs-12">			
+					<div class="dropdown"><a 
+							class="dropdown-toggle" data-toggle="dropdown" role="button"
+							aria-haspopup="true" aria-expanded="false" style="text-decoration:none;">
+							<span style="font-size:22px; border:2px solid rgb(51, 122, 183); border-radius:15px; padding:5px;" class="text-right">Category <i class="fa fa-arrow-down" aria-hidden="true"></i></span>
+							</a>
+							<div class="dropdown-menu list-group" id="category" style="padding:0;">
+								<a th:href="@{/laptopview(category='all')}" th:classappend="${activeAll}? 'active'" class="list-group-item">All</a>
+								<a th:href="@{/searchByCategory(category='Animation')}" th:classappend="${activeAnimation}? 'active'" class="list-group-item">Animation</a>
+								<a th:href="@{/searchByCategory(category='Gaming')}" th:classappend="${activeGaming}? 'active'" class="list-group-item">Gaming</a>
+								<a th:href="@{/searchByCategory(category='Multimedia')}" th:classappend="${activeMultimedia}? 'active'" class="list-group-item">Multimedia</a>
+								<a th:href="@{/searchByCategory(category='Programming')}" th:classappend="${activeProgramming}? 'active'" class="list-group-item">Programming</a>
+								<a th:href="@{/searchByCategory(category='Tablet')}" th:classappend="${activeTablet}? 'active'" class="list-group-item">Tablet</a>
+							</div>
+				   </div>				
+			</div>
+			
+			
+			
+			
+		</div>
+		
+
+		<div class="row" style="margin-top: 60px;">
+			
+			
+			<div class="col-xs-12">
+
+				<div th:if="${emptyList}">
+					<h5 style="font-style: italic;">Something went wrong. We have
+						no laptops to display.</h5>
+				</div>
+
+				<table border="0" id="laptopList">
+					<thead>
+						<tr>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="laptop-item" data-th-each="laptop : ${laptopList}">
+							<td>
+								<div th:if="${laptop != null}">
+									<div class="row"  style="margin-bottom:80px;" >
+										<div class="col-xs-3">
+											<a th:href="@{/laptopDetail?id=}+${laptop.id}"><img class="img-responsive" th:src="#{adminPath}+@{/images/laptop/}+${laptop.id}+'.png'"/></a>
+										</div>
+										<div class="col-xs-5" style="margin-top:40px; padding-left:50px;">
+											<a th:href="@{/laptopDetail?id=}+${laptop.id}"><h4 th:text="${laptop.model}"></h4></a>
+											<p><span th:text="${laptop.memory}"></span> </p>
+												<p><span
+												th:text="${#strings.capitalize(laptop.storageSpace)}"></span></p>
+											<p><span th:text="${laptop.proccessor}"></span> </p>
+											<p><span
+												th:text="${laptop.graphicCard}"></span></p> <p><span
+												th:text="${laptop.screen}"></span> </p> 
+												<br>
+											<p th:text="${#strings.abbreviate(laptop.description, 115)}"></p>
+										</div>
+										
+										<div class="col-xs-4" style="padding-top:50px; padding-left:200px;">
+										<a th:href="@{/laptopDetail?id=}+${laptop.id}"><span
+												style="font-size: x-large; color:rgb(0, 128, 192);">&euro;<span
+												th:text="${#numbers.formatDecimal(laptop.ourPrice, 0, 'COMMA', 2, 'POINT')}"></span> </span></a>
+											<span style="text-decoration: line-through;">&euro;<span
+												th:text="${#numbers.formatDecimal(laptop.listPrice, 0, 'COMMA', 2, 'POINT')}"></span></span>
+										</div>
+									</div>
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+
+			</div>
+		</div>
+	</div>
+
+	<div th:replace="common/header :: footer" />
+	<div th:replace="common/header :: body-bottom-scripts" />
+	<script>
+	$(document).ready(function () {
+    	$('#laptopList').DataTable({
+    		"ordering": false,
+			stateSave: false
+    	});
+    	
+    	$('#laptopList').on( 'page.dt', function () {
+    	    $('html, body').animate({
+    	        scrollTop: $('#laptopList').offset().top
+    	    }, 200);        
+    	});
+    	
+	});
+	
+	</script>
+	
+</body>
+</html>

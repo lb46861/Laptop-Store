@@ -1,0 +1,79 @@
+
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1000/xhtml">
+<head th:replace="common/header :: common-header" />
+
+  <body>
+
+    
+
+    <div th:replace="common/header :: navbar" />
+
+      
+	<div class="header_">
+	<h1 class = "header_naslov">Welcome to our site !</h1>
+	<p class = "header_p">Best Laptop Store in the world. </p>
+	</div>
+	
+	
+	
+		<div class="row first_row">
+		<div class="col-xs-6">
+			<div>
+				<div class="panel-body">
+					<img src="/images/macbook_firstpage_img.jpg" class="img-responsive" style="border-radius:20px;">
+				</div>
+			</div>
+		</div>
+		
+		<div class="col-xs-6">
+			<div>
+				<div class="panel-body">
+					<h3 class="text-center" style="padding:40px 0 20px; color:rgb(51, 122, 183);">LB LaptopStore</h3>
+					<p style="padding: 0 100px; line-height:26px;">
+						We began our journey in the 2005 and we started as laptop repairers.
+						We grew up step by step and today you can enjoy our products for the best price in the country.
+						Click <strong><a th:href="@{/laptopview}">here</a></strong> and enjoy our products. If you need any more information feel free to contact us.
+					</p>
+				</div>
+			</div>
+		</div>	
+	
+	</div>
+
+	
+	<div class="row first_row">
+		<div class="col-xs-6">
+			<div>
+				
+				
+				<div class="panel-body">
+					<h3 class="text-center" style="padding:40px 0 20px; color:rgb(51, 122, 183);">We are hiring !</h3>
+					<p style="padding: 0 100px; line-height:26px;">
+						Are you a good team player ? Do you like laptops and technology ? Do you have skills in object orriented programming  or MySQL ?
+						Then you are a real person for us. We are hiring 2 more persons to help us with our database and to help us grow.
+						If you are interested send us job request email with subject name LB Job Request on begovic.lovre@gmail.com
+					</p>
+					<p class="text-center" style="margin-top:20px;">
+					Good luck !
+					</p>
+				</div>
+			</div>
+		</div>
+		
+		<div class="col-xs-6">
+			<div>
+				<div class="panel-body">
+					<img src="/images/jobapply.jpg" class="img-responsive" style="border-radius:20px;">
+				</div>
+			</div>
+		</div>	
+	
+	</div>
+
+
+	 <div th:replace="common/header :: footer" />
+     <div th:replace="common/header :: body-bottom-scripts" />
+   
+  </body>
+</html>

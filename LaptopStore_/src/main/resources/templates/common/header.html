@@ -1,0 +1,144 @@
+
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/199/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml" >
+  
+  <head th:fragment="common-header">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>LB's LaptopStore</title>
+
+	<link rel="icon" href="/images/logo.jpg" type="image/icon type">
+	
+    <!-- Bootstrap core CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet" />
+
+	<!--  font-awesome icons -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Custom styles for this template -->
+    <link href="/css/style.css" rel="stylesheet" />
+    
+    <!-- data table -->
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
+
+  </head>
+
+
+  <body>
+  
+  <div th:fragment="navbar">
+ 
+   <!-- Static navbar -->
+      <nav class="navbar default navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" th:href="@{/}">LaptopStore</a>
+ 
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+           
+            <ul class="nav navbar-nav">              
+            
+              <li>
+              <form class="navbar-form" th:action="@{/searchLaptop}" method="post">
+              	<div class="form-group">
+              		<input type="text" name="keyword" class="form-control" placeholder="Laptop model" />
+              	</div>
+              	<button type="submit" class="btn btn-default">Search</button>
+              </form>
+              </li>
+              
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a th:href="@{/laptopview}">ALL LAPTOPS</a></li>
+              <li><a sec:authorize="isAnonymous()" th:href="@{/login}">MY ACCOUNT</a></li>
+              <li><a sec:authorize="isAuthenticated()" th:href="@{/myProfile}">MY ACCOUNT</a></li>
+              <li><a sec:authorize="isAuthenticated()" th:href="@{/shoppingCart/cart}">SHOPPING CART</a></li>
+              <li><a sec:authorize="isAuthenticated()" th:href="@{/logout}">LOGOUT</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+      
+     </div>
+     
+     
+     
+     <div th:fragment="footer">
+     	<footer>
+     		<div class="row">
+     			<div class="col-xs-4">
+     				<h4 class="text-center">LB LaptopStore</h4>	
+     				<p class="text-center" style="padding:5px 0 15px 0;">If you have any questions feel free to ask :)</p>
+     				<div class="row">
+     				<div class="col-xs-4 col-xs-offset-2">
+     					<p><i class="fa fa-envelope"></i> &nbsp;Email: </p>
+     					<p><i class="fa fa-phone"></i> &nbsp;&nbsp;Contact number: </p>
+     				</div>
+     				
+     				<div class="col-xs-6">
+     					<p>lblaptop@gmail.com</p>
+     					<p>+385 99 1112 222</p>
+     				</div>
+     				</div>
+     				
+     			</div>
+     			<div class="col-xs-4">
+     				<h4 class="text-center">Address</h4>
+     				 				
+     				<div class="col-xs-2 col-xs-offset-4">
+     					<p>Street:</p>
+     					<p>City: </p>
+     					<p>Zipcode: </p>
+     				</div>
+     				
+     				<div class="col-xs-6">
+     					<p>73 Hudson St</p>
+     					<p>DUINISH</p>
+     					<p>PH18 9AJ</p>
+     				</div>
+
+     			</div>
+     			<div class="col-xs-4">
+     			<h4 class="text-center">Working hours</h4>
+     				<div class="col-xs-3 col-xs-offset-3">
+     					<p>Mon - Fri:</p>
+     					<p>Saturday:</p>
+     					<p>Sunday: </p>
+     				</div>
+     				
+     				<div class="col-xs-6">
+	     				<p>8am - 20pm</p>
+	     				<p>8am - 2pm</p>
+	     				<p>not working </p>
+     				</div>
+     			</div>
+     		</div>
+     		
+     	<div class="row footer_bottom">
+     		<p class="text-center">&copy; LB Store 2021 - All Rights Reserved</p>
+     	</div>
+     	</footer>
+     	
+     </div>
+     
+     
+     <div th:fragment="body-bottom-scripts">
+    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    	<script src="/js/bootstrap.min.js"></script>
+    	<script src="/js/scripts.js"></script>
+    	<!-- data table -->
+		<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+     </div>
+  
+  
+  </body>
+  </html>

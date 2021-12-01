@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/199/xhtml">
+  
+	<head>
+	
+	    <!-- Bootstrap core CSS -->
+	    <link href="/css/bootstrap.min.css" rel="stylesheet" />
+
+	    <!-- Custom styles for this template -->
+	    <link href="/css/style.css" rel="stylesheet" />
+	    
+	    <style>
+	    	table{
+	    		border-collapse:collapse;
+	    	}
+	    	table, th, td{
+	    		border: 1px solid black;
+	    	}
+	    </style>
+	</head>
+<body>
+	<p>Hello <span th:text="${user.firstName}"></span>,</p>
+	<p>Thank you for shopping from our store.<br>
+	You order has been submitted and it will soon be on its way.
+	</p>
+	<p>Your order ID number is: <strong>#<span th:text="${order.id}"></span></strong></p>
+
+	<h2>Order Details:</h2>
+	<hr />
+
+	<h3>Shipping Address: </h3>
+	<p>Name: <span th:text="${order.shippingAddress.shippingAddressName}"></span><br>
+	Address: <span th:text="${order.shippingAddress.shippingAddressStreet1} + ' ' + ${order.shippingAddress.shippingAddressStreet2}"></span><br>
+	Country: <span th:text="${order.shippingAddress.shippingAddressCountry}"></span><br>
+	City: <span th:text="${order.shippingAddress.shippingAddressCity}"></span><br>
+	ZipCode: <span th:text="${order.shippingAddress.shippingAddressZipcode}"></span></p>
+	
+	
+	<h3><strong>Order Summary</strong></h3>
+	<table>
+		<thead>
+			<tr>
+				<td><strong>Item Name</strong></td>
+				<td class="text-center"><strong>Item Price</strong></td>
+				<td class="text-center"><strong>Item Quantity</strong></td>
+				<td class="text-right"><strong>Total</strong></td>
+			</tr>
+		</thead>
+		
+		<tbody>
+			<tr th:each="cartItem : ${cartItemList}">
+				<td data-th-text="${cartItem.laptop.model}"></td>
+				<td class="text-center" data-th-text="${cartItem.laptop.ourPrice}"></td>
+				<td class="text-center" data-th-text="${cartItem.qty}"></td>
+				<td class="text-right" data-th-text="${cartItem.subtotal}"></td>
+			</tr>
+			<tr>
+				<tr>
+				<td class="emptyrow"></td>
+				<td class="emptyrow"></td>
+				<td class="emptyrow text-center"><strong>Total price: </strong></td>
+				<td class="emptyrow text-right" data-th-text="${order.orderTotal}"></td>
+			</tr>
+
+		</tbody>
+	</table>
+	<br>
+	<p>If you want to order more check out our site !</p>
+	<p>LB LaptopStore</p>
+	
+	
+	
+</body>
+</html>

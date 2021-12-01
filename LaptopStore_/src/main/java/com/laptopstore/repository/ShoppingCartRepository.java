@@ -1,0 +1,9 @@
+package com.laptopstore.repository;
+
+import org.springframework.data.repository.CrudRepository;
+
+import com.laptopstore.domain.ShoppingCart;
+
+public interface ShoppingCartRepository extends CrudRepository<ShoppingCart, Long>{
+
+}

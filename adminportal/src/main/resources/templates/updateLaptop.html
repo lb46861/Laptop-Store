@@ -1,0 +1,258 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1000/xhtml">
+<head th:replace="common/header :: common-header" />
+
+<body>
+	<div th:replace="common/header :: navbar" />
+
+
+
+	<div class="container"
+		style="margin: 0px 0px 50px 130px; width: 60%;">
+		<div class="row">
+			<form class="form-horizontal" th:action="@{/laptop/updateLaptop}"
+				method="post" enctype="multipart/form-data">
+				<fieldset>
+					<legend class="center-block"
+						style="padding: 20px 0; margin: 0 0 40px 0;">Update Laptop
+						Information</legend>
+
+
+					<input hidden="hidden" name="id" th:value="${laptop.id}" />
+
+					<!-- model -->
+					<div class="form-group">
+						<label class="col-xs-2 control-label" for="model">* Model</label>
+						<div class="col-xs-8">
+							<input type="text" class="form-control" id="title" name="model"
+								th:value="${laptop.model}" required="required"
+								placeholder="Model" /> <span class="help-block">Laptop
+								model</span>
+						</div>
+					</div>
+
+					<!-- brand -->
+					<div class="form-group">
+						<label class="col-xs-2 control-label" for="brand">* Brand</label>
+						<div class="col-xs-8">
+							<input type="text" class="form-control" id="brand" name="brand"
+								th:value="${laptop.brand}" required="required"
+								placeholder="Brand" /> <span class="help-block">Laptop
+								brand</span>
+						</div>
+					</div>
+
+					<!-- Operating System -->
+					<div class="form-group">
+						<label class="col-xs-2 control-label" for="operatingSystem">Operating
+							System</label>
+						<div class="col-xs-8">
+							<input type="text" class="form-control" id="publisher"
+								th:value="${laptop.operatingSystem}" name="operatingSystem"
+								placeholder="Operating System" /> <span class="help-block">Laptop
+								operating System</span>
+						</div>
+					</div>
+
+					<!-- Memory -->
+					<div class="form-group">
+						<label class="col-xs-2 control-label" for="publicationDate">Memory</label>
+						<div class="col-xs-8">
+							<input type="text" class="form-control" id="memory" name="memory"
+								th:value="${laptop.memory}" placeholder="Memory" /> <span
+								class="help-block">Usable memory of laptop</span>
+						</div>
+					</div>
+
+					<!-- Storage -->
+					<div class="form-group">
+						<label class="col-xs-2 control-label" for="publicationDate">Storage
+							Space</label>
+						<div class="col-xs-8">
+							<input type="text" class="form-control" id="storageSpace" name="storageSpace"
+								th:value="${laptop.storageSpace}" placeholder="Storage Space" />
+							<span class="help-block">Storage space of laptop</span>
+						</div>
+					</div>
+
+					<!-- category -->
+					<div class="form-group">
+						<label class="col-xs-2 control-label" for="category">*Category</label>
+						<div class="col-xs-8">
+							<select th:value="${laptop.category}" id="category"
+								class="form-control" name="category">
+								<option value="" selected="selected" disabled="disabled">Please
+									select an option...</option>
+								<option value="Multimedia"
+									th:selected="(${laptop.category}=='Multimedia')">Multimedia</option>
+								<option value="Gaming"
+									th:selected="(${laptop.category}=='Gaming')">Gaming</option>
+								<option value="Animation"
+									th:selected="(${laptop.category}=='Animation')">Animation</option>
+								<option value="Programming"
+									th:selected="(${laptop.category}=='Programming')">Programming</option>
+								<option value="Tablet"
+									th:selected="(${laptop.category}=='Tablet')">Tablet</option>
+							</select>
+						</div>
+					</div>
+					<br>
+
+					<!-- Graphics -->
+					<div class="form-group">
+						<label class="col-xs-2 control-label" for="publicationDate">Graphic
+							Card</label>
+						<div class="col-xs-8">
+							<input type="text" class="form-control" id="graphicCard" name="graphicCard"
+								th:value="${laptop.graphicCard}" placeholder="Storage Space" />
+							<span class="help-block">Name of laptop Graphic card</span>
+						</div>
+					</div>
+
+
+
+					<!-- Proccessor -->
+					<div class="form-group">
+						<label class="col-xs-2 control-label" for="publicationDate">Proccessor</label>
+						<div class="col-xs-8">
+							<input type="text" class="form-control" id="proccessor" name="proccessor"
+								th:value="${laptop.proccessor}" placeholder="Proccessor" /> <span
+								class="help-block">Model of laptop proccessor</span>
+						</div>
+					</div>
+
+
+					<!-- screen -->
+					<div class="form-group">
+						<label class="col-xs-2 control-label" for="publicationDate">Screen</label>
+						<div class="col-xs-8">
+							<input type="text" class="form-control" id="screen" name="screen"
+								th:value="${laptop.screen}" placeholder="Screen Type" /> <span
+								class="help-block">Type of laptop screen</span>
+						</div>
+					</div>
+
+
+					<!-- warranty -->
+					<div class="form-group">
+						<label class="col-xs-2 control-label" for="warranty">Warranty</label>
+						<div class="col-xs-8">
+							<input type="text" class="form-control" id="warranty" name="warranty"
+								th:value="${laptop.warranty}" placeholder="Years of Waranty" />
+							<span class="help-block">Duration of laptop warranty</span>
+						</div>
+					</div>
+
+
+					<!-- shipping weight -->
+					<div class="form-group">
+						<label class="col-xs-2 control-label" for="shippingWeight">Shipping
+							Weight</label>
+						<div class="col-xs-8">
+							<div class="input-group">
+								<input th:value="${laptop.shippingWeight}" type="number" min="0" value="0" step="0.01"
+									name="shippingWeight" class="form-control" id="shippingWeight"
+									placeholder="Shipping Weight" /> <span
+									class="input-group-addon">kg</span>
+							</div>
+							<span class="help-block">Shipping Weight of the laptop</span>
+						</div>
+					</div>
+
+
+					<!-- list price -->
+					<div class="form-group">
+						<label class="col-xs-2 control-label" for="listPrice">List
+							Price</label>
+						<div class="col-xs-8">
+							<div class="input-group">
+								<span class="input-group-addon">&euro;</span> <input
+									th:value="${laptop.listPrice}" type="number" name="listPrice" step="0.01"
+									class="form-control" id="listPrice" placeholder="List Price" />
+							</div>
+							<span class="help-block">List price of the laptop</span>
+						</div>
+					</div>
+
+					<!-- our price -->
+					<div class="form-group">
+						<label class="col-xs-2 control-label" for="ourPrice">Our
+							Price</label>
+						<div class="col-xs-8">
+							<div class="input-group">
+								<span class="input-group-addon">&euro;</span> <input
+									th:value="${laptop.ourPrice}" type="number" name="ourPrice" step="0.01"
+									class="form-control" id="ourPrice" placeholder="Our Price" />
+							</div>
+							<span class="help-block">Our price of the laptop</span>
+						</div>
+					</div>
+
+					<!-- in stock number -->
+					<div class="form-group">
+						<label class="col-xs-2 control-label" for="inStockNumber">Number
+							in stock</label>
+						<div class="col-xs-8">
+							<input th:value="${laptop.inStockNumber}" type="number"
+								name="inStockNumber" class="form-control" id="inStockNumber"
+								placeholder="Number of in-stock copies" /> <span
+								class="help-block">Number of in-stock copies</span>
+						</div>
+					</div>
+
+					<!-- status of laptop -->
+					<div class="form-group">
+						<label class="col-xs-2 control-label" for="status">Status</label>
+						<div class="col-xs-8">
+							<label><input value="true" type="radio" name="active"
+								th:checked="${laptop.active}" class="form-control" /> Active </label> <label><input
+								value="false" type="radio" name="active" class="form-control" th:checked="${!laptop.active}"/>
+								Inactive </label> <span class="help-block">Whether the laptop is
+								active or inactive</span>
+						</div>
+					</div>
+
+					<!-- description -->
+					<div class="form-group">
+						<label class="col-xs-2 control-label" for="description">Description</label>
+						<div class="col-xs-8">
+							<textarea name="description" rows="5" class="form-control"
+								id="description" th:value="${laptop.description}" th:text="${laptop.description}"
+								placeholder="Description"></textarea>
+							<span class="help-block">Description of the laptop</span>
+						</div>
+					</div>
+
+					<!-- upload image -->
+					<div class="form-group">
+						<div class="col-xs-2 control-label">
+							<label for="laptopImage">Upload laptop image</label>
+						</div>
+						<div class="col-xs-8" style="padding-top: 20px;">
+							<input id="laptopImage" type="file" name="laptopImage"
+								th:value="${laptop.laptopImage}" />
+						</div>
+					</div>
+
+
+
+					<br>
+					<div class="form-group">
+						<div class="col-xs-2">
+						</div>
+						<div class="col-xs-8">
+							<button type="submit" class="btn btn-success">Update Laptop</button>&nbsp;&nbsp;&nbsp;
+							<a class="btn btn-danger" th:href="@{/laptop/laptopInfo(id=${laptop.id})}">Cancel</a>
+						</div>
+					</div>
+				</fieldset>
+			</form>
+		</div>
+	</div>
+
+
+
+	<div th:replace="common/header :: body-bottom-scripts" />
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1000/xhtml">
+
+
+
+<head th:replace="common/header :: common-header" />
+<body>
+	<div th:replace="common/header :: navbar" />
+
+	<div class="container" style="margin-top:50px;">
+		<h3>
+			Error: <span th:text="${message}"></span>
+		</h3>
+	
+		<h3>Bad request. The request path is invalid. Click <a th:href="@{/}">here</a> to return and try again.</h3>
+	</div>
+
+	<div th:replace="common/header :: body-bottom-scripts" />
+
+</body>
+</html>

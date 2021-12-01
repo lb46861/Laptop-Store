@@ -1,2 +1,2 @@
-# Laptop-Store
-Java Project for college
+# LaptopStore
+Java web application - LaptopStore

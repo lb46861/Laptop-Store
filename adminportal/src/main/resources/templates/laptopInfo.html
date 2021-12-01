@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1000/xhtml">
+<head th:replace="common/header :: common-header" />
+
+<body>
+	<div th:replace="common/header :: navbar" />
+
+	<div class="container">
+		<div style="margin-top:20px;">
+			<ol class="breadcrumb">
+				<li><a th:href="@{/laptop/laptopList}"><i class="fa fa-long-arrow-left" aria-hidden="true"></i> Go back</a></li>
+				<li><a th:href="@{/laptop/updateLaptop?id=}+${laptop.id}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a></li>
+			</ol>
+		</div>
+		<div class="row">
+			<div class="col-xs-3">
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<img th:src="@{/images/laptop/}+${laptop.id}+'.png'" class="img-responsive center-block"/>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-9">
+				<h3 th:text="${laptop.model}"></h3>
+				<div class="row">
+					<div class="col-xs-6">
+						<p><strong>Brand: </strong><span th:text="${laptop.brand}"></span></p>
+						<p><strong>Memory: </strong><span th:text="${laptop.memory}"></span></p>
+						<p><strong>Storage Space: </strong><span th:text="${laptop.storageSpace}"></span></p>
+						<p><strong>Category: </strong><span th:text="${laptop.category}"></span></p>
+						<p><strong>Graphic Card: </strong><span th:text="${laptop.graphicCard}"></span></p>
+						<p><strong>Proccessor: </strong><span th:text="${laptop.proccessor}"></span></p>
+						<p><strong>Screen: </strong><span th:text="${laptop.screen}"></span></p>
+						
+					</div>
+					<div class="col-xs-6">
+						<p><strong>Operating System: </strong><span th:text="${laptop.operatingSystem}"></span></p>
+						<p><strong>Warranty: </strong><span th:text="${laptop.warranty}"></span></p>
+						<p><strong>Shipping Weight: </strong><span th:text="${laptop.shippingWeight}"></span></p>
+						<p><strong>List Price: </strong><span th:text="${laptop.listPrice}"></span></p>
+						<p><strong>Out Price: </strong><span th:text="${laptop.ourPrice}"></span></p>
+						<p><strong>Number in Stock: </strong><span th:text="${laptop.inStockNumber}"></span></p>
+					</div>
+				</div>
+				<p style="margin-top:10px;"><strong>Description: </strong><span th:text="${laptop.description}"></span></p>
+			</div>
+		</div>
+	</div>
+
+	<div th:replace="common/header :: body-bottom-scripts" />
+</body>
+</html>

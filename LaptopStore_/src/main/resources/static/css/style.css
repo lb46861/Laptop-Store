@@ -1,0 +1,122 @@
+
+*{
+	padding:0;
+	margin:0;
+}
+
+body{
+	overflow-x:hidden;
+}
+
+
+h1, h2, p
+{
+	margin:0;
+	padding:0;
+}
+
+.container{
+	width:85%;
+
+}
+.navbar
+{
+	margin:0px;
+	padding:0px;
+	border-radius:0px;
+}
+.header_
+{
+	background-image: url("/images/WebShopBackground.jpg");
+	height:600px;
+	max-width:100%;
+	margin: 0 auto;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+
+.header_naslov
+{
+	
+	color:#F0FFFF;
+	padding:200px 0 20px 50px;
+	font-size:60px;
+}
+.header_p
+{
+	color:#F0FFF0;
+	padding: 0 0 20px 50px;
+	font-size:27px;
+}
+
+.first_row
+{
+	margin:100px 10px 0px 10px;
+}
+
+.home-headline
+{
+	font-family:'Arial';
+	font-size:24px;
+	color:#fff;
+	margin:auto;
+	text-align:center;
+	margin-top:-13px;
+}
+.home-headline span
+{
+	background-color:#231F20;
+	padding:5px 20px;
+}	
+
+.section-headline
+{
+	text-align:center;
+	padding-top:110px;
+	color:#F0F8FF;
+}
+.section-headline_p
+{
+	text-align:center;
+	padding-top:20px;
+	color:#F0FFFF;
+}
+
+.myAccountHeader
+{
+	height:300px;
+}
+
+.myAccLeftHeader
+{
+	background-image:url("/images/laptopviewHeader.jpg");
+	height:100%;
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+	background-size:cover;
+}
+
+.laptopviewHeader
+{
+	background-image:url("/images/laptopviewHeader.jpg");
+	height:100%;
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+	background-size:cover;
+}
+
+footer{
+	margin-top:0100px;
+	padding:20px 0 0 0;
+	background-color:#333;
+	color:#fff;
+}
+
+.footer_bottom{
+	background-color:rgb(51, 122, 183);
+	margin-top:20px;
+	padding:20px 0;
+}
+
+

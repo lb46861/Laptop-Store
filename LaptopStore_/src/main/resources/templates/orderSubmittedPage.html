@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1000/xhtml">
+
+
+
+<head th:replace="common/header :: common-header" />
+<body>
+	<div th:replace="common/header :: navbar" />
+
+	<div class="container">
+		<div class="row myAccountHeader">
+			<div class="col-xs-8 myAccLeftHeader">
+				<h2 class="section-headline">
+					<span>email sent successfully</span>
+				</h2>
+			</div>
+
+			<div class="col-xs-4">
+				<img src="/images/logo.jpg" class="img-responsive"
+					style="height: 300px;" />
+			</div>
+		</div>
+
+
+
+		<div class="row" style="margin-top: 20px;">
+			<div class="col-xs-12">
+				<div class="alert alert-success">
+					<h4>
+						<i class="fa fa-check" aria-hidden="true"
+							style="color: limegreen;"></i> Thank you, your order has been
+						placed. Check your email :)
+					</h4>
+					<h5>
+						Estimated delivery date is <span
+							th:text="${estimatedDeliveryDate}"></span>
+					</h5>
+					<h4>List of Items</h4>
+
+
+
+					<div class="row" th:each="cartItem : ${cartItemList}">
+
+						<hr />
+						<div class="col-xs-2">
+							<a th:href="@{/laptopDetail(id=${cartItem.laptop.id})}"> <img
+								class="img-responsive"
+								th:src="#{adminPath}+@{/images/laptop/}+${cartItem.laptop.id} + '.png'"
+								style="width: 70px;" />
+							</a>
+						</div>
+						<div class="col-xs-6">
+							<div style="padding-left: 80px;">
+								<a th:href="@{/laptopDetail?id=}+${cartItem.laptop.id}"><h4
+										th:text="${cartItem.laptop.model}"></h4></a>
+							</div>
+						</div>
+
+						<div class="col-xs-2">
+						Price per item:
+							<h5 style="color: #db3208; font-size: large;">							
+							&euro;<span th:text="${cartItem.laptop.ourPrice}"></span>
+							</h5>
+						</div>
+
+						<div class="col-xs-2">
+							You ordered: <h5 style="font-size: large;" th:text="${cartItem.qty}"></h5>
+						</div>
+
+					</div>
+
+
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+	<div th:replace="common/header :: footer" />
+	<div th:replace="common/header :: body-bottom-scripts" />
+
+</body>
+</html>
